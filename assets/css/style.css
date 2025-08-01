@@ -27,9 +27,11 @@ body {
 
 .container--app {
     flex-direction: column;
+    align-items: center;
     text-align: center;
     display: flex;
     padding: 20px;
+    width: 100%;
     gap: 20px;
 }
 
@@ -80,9 +82,18 @@ body {
     width: 100%;
 }
 
+.res {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
 .container--timers {
     justify-content: space-evenly;
+    max-width: 700px;
+    flex-wrap: wrap;
     display: flex;
+    width: 100%;
     gap: 10px;
 }
 
