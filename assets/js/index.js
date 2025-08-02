@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Precisamos pegar o input de data
     const inputData = document.querySelector('#data--evento');
-    let contadorRodar = true;
+    let contadorRodar;
 
     const form = document.querySelector('#form');
     form.addEventListener('submit', (e) => {
