@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const intervalo = setInterval(() => {            
             const dataAtual = new Date();
 
+            if(dataEvento < dataAtual) {
+                alert("Informe uma data de evento futuro!");
+                clearInterval(intervalo);
+                return;
+            }
+
             const diferencaEmMilissegundos = dataEvento.getTime() - dataAtual.getTime();  
             atualizarContador(calcularTempoEvento(diferencaEmMilissegundos));
 
