@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Contador Regressivo | JS</title>
+</head>
+<body>
+    
+    <main>
+        <section>
+            <div class="container">
+                <div class="container--app">
+                    <div class="container--texto">
+                        <h1 class="texto--branco">Contador Regressivo</h1>
+                        <p class="texto--branco">Insira abaixo uma data e hora para um evento e faremos uma contagem regressiva para esse evento.</p>
+                    </div>
+                    <div class="container--form">
+                        <form id="form">
+                            <div class="container--input">
+                                <label for="data--evento" class="texto--branco">Data e hora do evento:</label>
+                                <input type="datetime-local" name="data--evento" id="data--evento">
+                            </div>
+                            <button class="btn" type="submit">Contar</button>
+                        </form>
+                    </div>
+                    <div id="res" class="res">
+                        <div class="container--timers">
+                            <div class="timer">
+                                <h2 id="dias">00</h2>
+                                <p>Dias</p>
+                            </div>
+                            <div class="timer">
+                                <h2 id="horas">00</h2>
+                                <p>Horas</p>
+                            </div>
+                            <div class="timer">
+                                <h2 id="minutos">00</h2>
+                                <p>Minutos</p>
+                            </div>
+                            <div class="timer">
+                                <h2 id="segundos">00</h2>
+                                <p>Segundos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
