@@ -3,20 +3,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Precisamos pegar o input de data
     const inputData = document.querySelector('#data--evento');
+    let contadorRodar = true;
 
     const form = document.querySelector('#form');
     form.addEventListener('submit', (e) => {
+        contadorRodar = true;
         e.preventDefault();
         
         const valorInput = inputData.value;
 
-        const dataEvento = new Date(valorInput);        
+        const dataEvento = new Date(valorInput);  
         
-        setInterval(() => {
+        const intervalo = setInterval(() => {            
             const dataAtual = new Date();
+
             const diferencaEmMilissegundos = dataEvento.getTime() - dataAtual.getTime();  
             atualizarContador(calcularTempoEvento(diferencaEmMilissegundos));
+
+            if(contadorRodar == false) {
+                clearInterval(intervalo);
+                eventoComecou();
+            }
+
         }, 1000);
+
+        if(contadorRodar) {
+            intervalo;
+        }
         
     });
 
@@ -49,10 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
         cardDia.textContent = formataTempo(tempo.dias_evento);
         cardHora.textContent = formataTempo(tempo.horas_evento);
         cardMinuto.textContent = formataTempo(tempo.minutos_evento);
-        cardSegundo.textContent = formataTempo(tempo.segundos_evento);        
+        cardSegundo.textContent = formataTempo(tempo.segundos_evento);
+
+        if(tempo.dias_evento <= 0 && tempo.horas_evento <= 0 && tempo.minutos_evento <= 0 && tempo.segundos_evento <= 0) {
+            contadorRodar = false;
+        }
     } 
 
-    function formataTempo (tempo) {
+    function formataTempo(tempo) {
         return (tempo < 10) ? `0${tempo}` : tempo;
+    }
+
+    function eventoComecou() {
+        alert("O Evento começou!");
     }
 });
